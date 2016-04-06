@@ -1,0 +1,15 @@
+invMod (n,p) := block([m : 1, r:Nothing],
+  if gcd(n,p) = 1
+       then ( unless mod(m*n,p) = 1
+              do ( m : m + 1),
+              r: Just(m)),
+            r)$
+
+/* (%i33) f(x) := [x,invMod(x,5)]$
+   (%i34) makelist(f(x),x,0,4);
+   (%o34) [[0, Nothing], [1, Just(1)], [2, Just(3)], [3, Just(2)],
+           [4, Just(4)]]
+   (%i35) f(x) := [x,invMod(x,6)]$
+   (%i36) makelist(f(x),x,0,5);
+   (%o36) [[0, Nothing], [1, Just(1)], [2, Nothing], [3, Nothing],
+           [4, Nothing],5, Just(5)]] */
